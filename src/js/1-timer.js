@@ -59,6 +59,7 @@ function startTimer() {
        refs.dataMinutes.textContent = addLeadingZero(convertedData.minutes);
        refs.dataSeconds.textContent = addLeadingZero(convertedData.seconds);
        targetTime -= 1000;
+       refs.buttonStart.disabled = true;
        
       if (targetTime <= 0) {
        clearInterval(selectedDate);
