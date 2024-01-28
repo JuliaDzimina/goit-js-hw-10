@@ -20,3 +20,7 @@ a {
   font-weight: 500;
   font-size: 24px;
 }
+
+* {
+  box-sizing: border-box;
+}
