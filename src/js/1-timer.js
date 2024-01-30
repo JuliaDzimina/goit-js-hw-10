@@ -46,37 +46,44 @@ const options = {
           });
       } else {
         refs.buttonStart.disabled = false;
+
+        startTimer();
         }
     },
   };
   
-flatpickr(refs.dateTime, options);
+flatpickr('#datetime-picker', options);
 
 // Calculation and redetermination of time
-const currentTime = new Date();
+
+
 function startTimer() {
-    let futureTime = new Date(refs.dateTime.value);
-     let targetTime = futureTime - currentTime;
-   
+    refs.dateTime.disabled = true;
+    refs.buttonStart.disabled = true;
+
     const selectedDate = setInterval(() => {
+     const currentTime = new Date();
+     let targetTime = userSelectedDate- currentTime;
        const convertedData =  convertMs(targetTime);
        refs.dataDay.textContent = addLeadingZero(convertedData.days);
        refs.dataHours.textContent = addLeadingZero(convertedData.hours);
        refs.dataMinutes.textContent = addLeadingZero(convertedData.minutes);
        refs.dataSeconds.textContent = addLeadingZero(convertedData.seconds);
        targetTime -= 1000;
-       refs.buttonStart.disabled = true;
        
+
       if (targetTime <= 0) {
        clearInterval(selectedDate);
+       refs.dateTime.disabled = false;
      }
-    }, 1000)
-   }
+    }, 1000);
+    
+   };
 
    // Identify the time format
 function addLeadingZero(value) {
     return String(value).padStart(2, '0');
-  }
+  };
 
 
 function convertMs(ms) {
@@ -96,4 +103,4 @@ function convertMs(ms) {
     const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   
     return { days, hours, minutes, seconds };
-  }
+  };
