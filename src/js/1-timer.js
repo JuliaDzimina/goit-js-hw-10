@@ -58,8 +58,7 @@ flatpickr('#datetime-picker', options);
 
 
 function startTimer() {
-    refs.dateTime.disabled = true;
-    refs.buttonStart.disabled = true;
+    
 
     const selectedDate = setInterval(() => {
      const currentTime = new Date();
@@ -70,7 +69,10 @@ function startTimer() {
        refs.dataMinutes.textContent = addLeadingZero(convertedData.minutes);
        refs.dataSeconds.textContent = addLeadingZero(convertedData.seconds);
        targetTime -= 1000;
-       
+
+       refs.dateTime.disabled = true;
+       refs.buttonStart.disabled = true;
+
 
       if (targetTime <= 0) {
        clearInterval(selectedDate);
