@@ -29,7 +29,7 @@ function  onFormSubmit(ev){
     createPromise(delay, state)
     .then(() => {
         iziToast.success({ 
-            title: 'OK',
+            title: '',
             message: `✅ Fulfilled promise in ${delay}ms`,
             position: 'topRight',
             //iconUrl: iconOk,
@@ -40,7 +40,7 @@ function  onFormSubmit(ev){
     })
     .catch(() => {
         iziToast.error({ 
-            title: 'Error',
+            title: '',
             message: `❌ Rejected promise in ${delay}ms`,
             position: 'topRight', 
             //iconUrl: iconError,
