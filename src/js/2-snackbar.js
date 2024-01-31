@@ -32,6 +32,7 @@ function  onFormSubmit(ev){
             title: '',
             message: `✅ Fulfilled promise in ${delay}ms`,
             position: 'topRight',
+            icon: '',
             //iconUrl: iconOk,
             titleColor: '#FFF',
             messageColor: '#FFF',
@@ -42,7 +43,8 @@ function  onFormSubmit(ev){
         iziToast.error({ 
             title: '',
             message: `❌ Rejected promise in ${delay}ms`,
-            position: 'topRight', 
+            position: 'topRight',
+            icon: '', 
             //iconUrl: iconError,
             titleColor: '#FFF',
             messageColor: '#FFF',

@@ -47,7 +47,6 @@ const options = {
       } else {
         refs.buttonStart.disabled = false;
 
-        startTimer();
         }
     },
   };
